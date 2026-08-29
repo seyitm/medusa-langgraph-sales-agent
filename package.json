@@ -1,0 +1,49 @@
+{
+  "name": "medusa-langgraph-sales-agent",
+  "version": "0.1.0",
+  "private": true,
+  "license": "PolyForm-Noncommercial-1.0.0",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "packageManager": "pnpm@10.17.1",
+  "scripts": {
+    "dev": "tsx watch src/main.ts",
+    "build": "tsc -p tsconfig.build.json",
+    "check": "pnpm typecheck && pnpm test && pnpm build",
+    "start": "node dist/main.js",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:smoke": "vitest run tests/smoke",
+    "test:watch": "vitest",
+    "db:setup": "tsx src/scripts/setup-database.ts",
+    "db:cleanup": "tsx src/scripts/cleanup-threads.ts"
+  },
+  "dependencies": {
+    "@fastify/cors": "11.3.0",
+    "@fastify/rate-limit": "11.2.0",
+    "@fastify/swagger": "9.8.1",
+    "@fastify/swagger-ui": "6.1.1",
+    "@langchain/anthropic": "1.5.8",
+    "@langchain/core": "1.2.9",
+    "@langchain/langgraph": "1.4.13",
+    "@langchain/langgraph-checkpoint-postgres": "1.0.5",
+    "@langchain/openai": "1.5.10",
+    "@medusajs/js-sdk": "2.19.0",
+    "@medusajs/types": "2.19.0",
+    "dotenv": "17.4.2",
+    "fastify": "5.12.1",
+    "jose": "6.2.10",
+    "langchain": "1.5.10",
+    "pg": "8.23.0",
+    "zod": "4.5.2"
+  },
+  "devDependencies": {
+    "@types/node": "26.4.0",
+    "@types/pg": "8.23.1",
+    "tsx": "4.23.12",
+    "typescript": "7.0.2",
+    "vitest": "4.1.11"
+  }
+}
